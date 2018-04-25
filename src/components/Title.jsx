@@ -3,6 +3,7 @@ import React from 'react';
 class Title extends React.Component {
   render() {
     const { status } = this.props;
+    
     let title;
     switch (status) {
       case 'resume':

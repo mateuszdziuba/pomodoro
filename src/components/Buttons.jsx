@@ -2,39 +2,35 @@ import React from 'react';
 
 class Buttons extends React.Component {
   render() {
-    const { startTimer, resetTimer, status } = this.props;
+    const { status, start, reset } = this.props;
+
+    let button1, button2;
+    let symbol = <i className="far fa-play-circle" />;
+    
+    if (status === 'resume') {
+      symbol = <i className="far fa-pause-circle" />;
+    } 
+
+    if (status !== 'finished') {
+      button1 = (
+        <button onClick={start} className="button is-danger is-large">
+          {symbol}
+        </button>
+      );
+    }
+
+    if (status !== 'default') {
+      button2 = (
+        <button onClick={reset} className="button is-danger is-large">
+          <i className="fas fa-undo" />
+        </button>
+      );
+    }
+
     return (
       <div>
-        {status === 'default' || status === 'pause' ? (
-          <button
-            id="start"
-            onClick={startTimer}
-            className="button is-danger is-large"
-          >
-            <i className="far fa-play-circle" />
-          </button>
-        ) : status === 'resume' ? (
-          <button
-            id="pause"
-            onClick={startTimer}
-            className="button is-danger is-large"
-          >
-            <i className="far fa-pause-circle" />
-          </button>
-        ) : (
-          ''
-        )}
-        {status !== 'default' ? (
-          <button
-            id="reset"
-            onClick={resetTimer}
-            className="button is-danger is-large"
-          >
-            <i className="fas fa-undo" />
-          </button>
-        ) : (
-          ''
-        )}
+        {button1}
+        {button2}
       </div>
     );
   }

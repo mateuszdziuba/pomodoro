@@ -35,6 +35,6 @@
   
 }
 
-#start, #pause, #reset  {
+.button {
   margin: 5px;
 }

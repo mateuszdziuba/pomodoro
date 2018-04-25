@@ -31,7 +31,7 @@ class Timer extends React.Component {
     };
     return obj;
   }
-  
+
   componentDidMount() {
     let timeLeft = this.secondsToTime(this.state.seconds);
     this.setState({ time: timeLeft });
@@ -56,7 +56,7 @@ class Timer extends React.Component {
       seconds: initialSeconds,
       status: 'default',
       time: this.secondsToTime(initialSeconds)
-    }); 
+    });
   }
 
   countDown() {
@@ -81,8 +81,8 @@ class Timer extends React.Component {
         </span>
         <Buttons
           status={this.state.status}
-          startTimer={this.startTimer}
-          resetTimer={this.resetTimer}
+          start={this.startTimer}
+          reset={this.resetTimer}
         />
       </div>
     );
